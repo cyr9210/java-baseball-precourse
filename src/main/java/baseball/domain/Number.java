@@ -29,8 +29,4 @@ public class Number {
         return number == number1.number;
     }
 
-    @Override
-    public int hashCode() {
-        return number;
-    }
 }

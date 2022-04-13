@@ -14,7 +14,7 @@ public class Numbers {
     private final List<Number> numbers = new ArrayList<>(3);
 
     private Numbers(List<Integer> numbers) {
-        if (numbers.size() > 3) {
+        if (numbers.size() != 3) {
             throw new IllegalArgumentException("숫자는 3자리여야 합니다.");
         }
         for (int number : numbers) {
@@ -67,4 +67,5 @@ public class Numbers {
         }
         return count;
     }
+
 }

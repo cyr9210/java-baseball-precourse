@@ -1,13 +1,9 @@
 package baseball.controller;
 
 import baseball.domain.Numbers;
-import baseball.service.GameService;
-import baseball.service.InputService;
+import baseball.domain.Result;
 
 public class GameController {
-
-    private static final GameService gameService = new GameService();
-    private static final InputService inputService = new InputService();
 
     private final Numbers answer;
 
@@ -15,10 +11,14 @@ public class GameController {
         this.answer = answer;
     }
 
-    public void game() {
+    public Result game(Numbers inputNumbers) {
+        int containsCount = answer.getContainsCount(inputNumbers);
+        if (containsCount == 0) {
+            return Result.Nothing();
+        }
 
+        int strikeCount = answer.getStrikeCount(inputNumbers);
+        return new Result(containsCount, strikeCount);
     }
-
-
 
 }
