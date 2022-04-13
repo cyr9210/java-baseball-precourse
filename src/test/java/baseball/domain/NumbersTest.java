@@ -57,4 +57,14 @@ class NumbersTest {
         assertEquals(result, containsCount);
     }
 
+    @DisplayName("위치가 같은 숫자의 갯수를 구한다.")
+    @ParameterizedTest
+    @CsvSource(value = {"1,2,3,3", "1,2,4,2", "1,4,5,1", "3,1,2,0"})
+    public void getStrikeCount(int inputFirst, int inputSecond, int inputThird, int result) {
+        Numbers answer = Numbers.generate(() -> createNumberMock(1, 2, 3));
+        Numbers inputNumbers = Numbers.generate(() -> createNumberMock(inputFirst, inputSecond, inputThird));
+        int containsCount = answer.getStrikeCount(inputNumbers);
+        assertEquals(result, containsCount);
+    }
+
 }

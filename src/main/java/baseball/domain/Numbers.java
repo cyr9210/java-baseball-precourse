@@ -41,19 +41,30 @@ public class Numbers {
     public int getContainsCount(Numbers inputNumbers) {
         int count = 0;
         for (final Number number : inputNumbers.numbers) {
-            count = plusCount(count, number);
+            count = plusContainsCount(count, number);
         }
         return count;
     }
 
-    private int plusCount(int count, Number inputNumber) {
+    private int plusContainsCount(int count, Number inputNumber) {
         if (numbers.contains(inputNumber)) {
             count++;
         }
         return count;
     }
 
-    public void getStrike(Numbers inputNumbers) {
+    public int getStrikeCount(Numbers inputNumbers) {
         int count = 0;
+        for (int i = 0; i < numbers.size(); i++) {
+            count = plusStrikeCount(inputNumbers, count, i);
+        }
+        return count;
+    }
+
+    private int plusStrikeCount(Numbers inputNumbers, int count, int i) {
+        if (getNumber(i) == inputNumbers.getNumber(i)) {
+            count++;
+        }
+        return count;
     }
 }
