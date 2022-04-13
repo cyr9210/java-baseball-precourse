@@ -1,5 +1,6 @@
 package baseball.view;
 
+import baseball.domain.Number;
 import baseball.domain.Numbers;
 import baseball.generator.InputGenerator;
 import camp.nextstep.edu.missionutils.Console;
@@ -17,15 +18,15 @@ public class InputView {
     }
 
     public Numbers inputNumbers(InputGenerator inputGenerator) {
-        List<Integer> numbers = new ArrayList<>(Numbers.MAX);
+        List<Number> numbers = new ArrayList<>(Number.MAX);
         System.out.println(INPUT_MESSAGE);
         String input = inputGenerator.input();
         String[] numberStrings = input.split("");
         for (final String numberString : numberStrings) {
-            parseInt(numberString);
-            numbers.add(Integer.parseInt(numberString));
+            int number = parseInt(numberString);
+            numbers.add(new Number(number));
         }
-        return Numbers.generate(() -> numbers);
+        return new Numbers(numbers);
     }
 
     private int parseInt(String numberString) {

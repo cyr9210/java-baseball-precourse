@@ -1,5 +1,6 @@
 package baseball.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -23,6 +24,12 @@ class NumberTest {
     @ValueSource(ints = {0, 10})
     public void constructor_fail(int number) {
         assertThatIllegalArgumentException().isThrownBy(() -> new Number(number));
+    }
+
+    @Test
+    public void generateRandom() {
+        Number number = Number.generateRandom();
+        assertThat(number.getNumber()).isBetween(Number.MIN, Number.MAX);
     }
 
 }

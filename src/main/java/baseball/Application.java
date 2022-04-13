@@ -8,6 +8,8 @@ import baseball.view.ResultView;
 
 public class Application {
 
+    private static final String END_MESSAGE = "게임 종료";
+
     public static void main(String[] args) {
         InputView inputView = new InputView();
         ResultView resultView = new ResultView();
@@ -16,6 +18,7 @@ public class Application {
         while (inputView.inputContinue()) {
             play(inputView, resultView);
         }
+        System.out.println(END_MESSAGE);
     }
 
     private static void play(InputView inputView, ResultView resultView) {
