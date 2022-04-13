@@ -14,10 +14,10 @@ public class Application {
         InputView inputView = new InputView();
         ResultView resultView = new ResultView();
 
-        play(inputView, resultView);
-        while (inputView.inputContinue()) {
+        do {
             play(inputView, resultView);
-        }
+        } while (inputView.inputContinue());
+
         System.out.println(END_MESSAGE);
     }
 
