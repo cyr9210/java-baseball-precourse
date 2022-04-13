@@ -32,8 +32,15 @@ public class InputView {
         try {
             return Integer.parseInt(numberString);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("입력값은 숫자여야 합니다.");
+            throw new IllegalArgumentException(EXCEPTION_MESSAGE);
         }
+    }
+
+    public Boolean inputContinue() {
+        System.out.println(IS_CONTINUE_MESSAGE);
+        String continueString = Console.readLine();
+        int isContinue = Integer.parseInt(continueString);
+        return isContinue == 1;
     }
 
 }
