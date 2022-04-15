@@ -27,7 +27,7 @@ public class Result {
     }
 
     public boolean isMatch() {
-        return strike == 3;
+        return strike == Numbers.SIZE;
     }
 
     public int getBall() {
