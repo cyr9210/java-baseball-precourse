@@ -4,24 +4,27 @@ import baseball.domain.Result;
 
 public class ResultView {
 
-    private static final String ONLY_BALL_MESSAGE = "%s볼";
-    private static final String ONLY_STRIKE_MESSAGE = "%s스트라이크";
-    private static final String BALL_STRIKE_MESSAGE = "%s볼 %s스트라이크";
+    private static final String BALL_MESSAGE = "볼";
+    private static final String STRIKE_MESSAGE = "스트라이크";
     private static final String NOTHING = "낫싱";
+    private static final String BLANK = " ";
 
     public void printResult(Result result) {
+        System.out.println(getResultMessage(result));
+    }
+
+    private String getResultMessage(Result result) {
         if (result.isNothing()) {
-            System.out.println(NOTHING);
+            return NOTHING;
         }
-        if (result.isContainsStrikeBall()) {
-            System.out.println(String.format(BALL_STRIKE_MESSAGE, result.getBall(), result.getStrike()));
+        StringBuilder builder = new StringBuilder();
+        if (result.isContainsBall()) {
+            builder.append(result.getBall()).append(BALL_MESSAGE).append(BLANK);
         }
-        if (result.isOnlyBall()) {
-            System.out.println(String.format(ONLY_BALL_MESSAGE, result.getBall()));
+        if (result.isContainsStrike()) {
+            builder.append(result.getStrike()).append(STRIKE_MESSAGE);
         }
-        if (result.isOnlyStrike()) {
-            System.out.println(String.format(ONLY_STRIKE_MESSAGE, result.getStrike()));
-        }
+        return builder.toString();
     }
 
 }

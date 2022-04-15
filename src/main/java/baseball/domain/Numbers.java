@@ -21,11 +21,15 @@ public class Numbers {
         List<Number> list = new ArrayList<>();
         while (list.size() != SIZE) {
             Number number = Number.generateRandom();
-            if (!list.contains(number)) {
-                list.add(number);
-            }
+            addNumbers(list, number);
         }
         return new Numbers(list);
+    }
+
+    private static void addNumbers(List<Number> list, Number number) {
+        if (!list.contains(number)) {
+            list.add(number);
+        }
     }
 
     public List<Number> getNumbers() {

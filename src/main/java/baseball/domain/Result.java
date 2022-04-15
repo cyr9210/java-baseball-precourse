@@ -18,16 +18,12 @@ public class Result {
         return ball == 0 && strike == 0;
     }
 
-    public boolean isOnlyBall() {
-        return ball > 0 && strike == 0;
+    public boolean isContainsBall() {
+        return ball > 0;
     }
 
-    public boolean isOnlyStrike() {
-        return strike > 0 && ball == 0;
-    }
-
-    public boolean isContainsStrikeBall() {
-        return strike > 0 && ball > 0;
+    public boolean isContainsStrike() {
+        return strike > 0;
     }
 
     public boolean isMatch() {

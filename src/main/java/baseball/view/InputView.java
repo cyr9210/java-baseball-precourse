@@ -9,9 +9,9 @@ import java.util.List;
 
 public class InputView {
 
-    public static final String INPUT_MESSAGE = "숫자를입력해주세요:";
-    public static final String IS_CONTINUE_MESSAGE = "게임을새로시작하려면1,종료하려면2를입력하세요.";
-    public static final String EXCEPTION_MESSAGE = "입력값은 숫자여야 합니다.";
+    private static final String INPUT_MESSAGE = "숫자를입력해주세요:";
+    private static final String IS_CONTINUE_MESSAGE = "게임을새로시작하려면1,종료하려면2를입력하세요.";
+    private static final String EXCEPTION_MESSAGE = "입력값은 숫자여야 합니다.";
 
     public Numbers inputNumbers() {
         return inputNumbers(Console::readLine);
